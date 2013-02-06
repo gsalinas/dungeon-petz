@@ -1,4 +1,6 @@
-# This file contains the defintion of the Card and Deck classes and associated methods.
+# This file contains the defintion of the Card and Deck classes and associated
+# methods.
+import random
 
 class Card(object):
 	"""Represents a Dungeon Petz card.
@@ -34,9 +36,26 @@ class Deck(object):
 	def __init__(self, color, distribution):
 		"""Initialize the deck.
 		
-		Expects a string for the deck color and a tuple for the symbol
-		distribution, in the following order: Hunger, Poop, Anger,
-		Play, Magic, Sickness"""
+		Expects a string for the deck color and a list of string /
+		number pairs for the symbol distribution."""
 
 		self.color = color
-		
+		self.draw_pile = []
+		self.discard_pile = []
+
+		for x in distribution:
+			symbol = x[0]
+			number = x[1]
+
+			for i in range(number):
+				new_card = Card(self.color, symbol)
+				self.draw_pile.append(new_card)
+
+		self.shuffleDeck()
+
+	def shuffleDeck(self):
+		"""Add the discard pile back to the deck and reshuffle."""
+		self.draw_pile.extend(self.discard_pile)
+		self.discard_pile[:] = []
+		random.shuffle(self.draw_pile)
+
