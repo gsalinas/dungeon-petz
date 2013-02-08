@@ -84,3 +84,33 @@ class Deck(object):
             return_list.append(self.drawSingleCard())
 
         return return_list
+
+class DeckGroup(object):
+    """A group of several decks. Manages discard color and piles."""
+
+    def __init__(self):
+        """Initialize the deck group.
+        
+        For now the default decks are set up and those defaults are part of
+        this class description."""
+        
+        redDist = [("Anger",12),("Play",4),("Hunger",3),("Poop",3),("Sickness",2)]
+        greenDist = [("Hunger",16),("Poop",10),("Anger",4),("Sickness",2)]
+        yellowDist = [("Play",12),("Magic",4),("Hunger",2),("Poop",2),("Sickness",4)]
+        purpleDist = [("Magic",12),("Play",4),("Anger",4),("Sickness",4)]
+        blueDist = [("Potion",5)]
+
+        redDeck = Deck("Red",redDist)
+        greenDeck = Deck("Green",greenDist)
+        yellowDeck = Deck("Yellow",yellowDist)
+        purpleDeck = Deck("Purple",purpleDist)
+        blueDeck = Deck("Blue",blueDist)
+
+        deckDict = {
+                "Red": redDeck,
+                "Green": greenDeck,
+                "Yellow": yellowDeck,
+                "Purple": purpleDeck,
+                "Blue": blueDeck,
+        }
+
