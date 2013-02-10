@@ -18,6 +18,7 @@ class Pet(object):
         Defaults to standard pricing and aging, but if these are set to other
         values nothing should break."""
         
+        print "Initializing pet."
         # Default pricing based on pet diet.
         carnivore_pricing = [0,0,0,3,4,5,6]
         herbivore_pricing = [0,0,0,2,3,4,5]
@@ -41,7 +42,7 @@ class Pet(object):
         }
 
         # Set carnivore and herbivore flags.
-        [self.carnivore, self.herbivore] = diet_cases.get(diet)
+        [self.carnivore, self.herbivore] = diet_cases.get(diet)[:2]
 
         # Set pricing based on diet defaults. Gets the last dictionary item
         self.pricing_chart = diet_cases.get(diet)[-1]
@@ -52,7 +53,7 @@ class Pet(object):
         If no arguments are given, ages the pet according to its growth chart.
         If an argument is given, ages the pet that many steps instead."""
 
-        if i = None:
+        if i == None:
             i = self.aging_chart[self.age]
     
         self.age += i
