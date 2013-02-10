@@ -94,30 +94,36 @@ class DeckGroup(object):
         For now the default decks are set up and those defaults are part of
         this class description."""
         
+        print "reached the beginning of initialization"
         redDist = [("Anger",12),("Play",4),("Hunger",3),("Poop",3),("Sickness",2)]
         greenDist = [("Hunger",16),("Poop",10),("Anger",4),("Sickness",2)]
         yellowDist = [("Play",12),("Magic",4),("Hunger",2),("Poop",2),("Sickness",4)]
         purpleDist = [("Magic",12),("Play",4),("Anger",4),("Sickness",4)]
         blueDist = [("Potion",5)]
 
-        redDeck = Deck("Red",redDist)
-        greenDeck = Deck("Green",greenDist)
-        yellowDeck = Deck("Yellow",yellowDist)
-        purpleDeck = Deck("Purple",purpleDist)
-        blueDeck = Deck("Blue",blueDist)
+        self.red_deck = Deck("Red",redDist)
+        self.green_deck = Deck("Green",greenDist)
+        self.yellow_deck = Deck("Yellow",yellowDist)
+        self.purple_deck = Deck("Purple",purpleDist)
+        self.blue_deck = Deck("Blue",blueDist)
+        
+        print "initialized further"
 
-        deckDict = {
-                "Red": redDeck,
-                "Green": greenDeck,
-                "Yellow": yellowDeck,
-                "Purple": purpleDeck,
-                "Blue": blueDeck,
+        self.test_string = "Test String"
+        self.deck_dict = {
+                "Red": self.red_deck,
+                "Green": self.green_deck,
+                "Yellow": self.yellow_deck,
+                "Purple": self.purple_deck,
+                "Blue": self.blue_deck,
         }
+
+        print "all initialized now"
 
 
     def drawCard(self, color):
         """Return a card from the deck of the given color."""
-        return self.deckDict.get(color).drawCard()
+        return self.deck_dict.get(color).drawCard()
 
     def drawSeveralCards(self, needs_list):
         """Return a list of cards of the appropriate colors."""
