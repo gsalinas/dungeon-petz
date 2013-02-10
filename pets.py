@@ -18,7 +18,6 @@ class Pet(object):
         Defaults to standard pricing and aging, but if these are set to other
         values nothing should break."""
         
-        print "Initializing pet."
         # Default pricing based on pet diet.
         carnivore_pricing = [0,0,0,3,4,5,6]
         herbivore_pricing = [0,0,0,2,3,4,5]
