@@ -114,3 +114,17 @@ class DeckGroup(object):
                 "Blue": blueDeck,
         }
 
+
+    def drawCard(self, color):
+        """Return a card from the deck of the given color."""
+        return self.deckDict.get(color).drawCard()
+
+    def drawSeveralCards(self, needs_list):
+        """Return a list of cards of the appropriate colors."""
+        return_list = []
+
+        for color in needs_list:
+            return_list.append(self.drawCard(color))
+
+        return return_list
+
